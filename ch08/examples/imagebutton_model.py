@@ -14,18 +14,4 @@ class ImageButton(pygame.sprite.Sprite):
         self.color = "white"
         self.message = pygame.font.SysFont(None, 14).render(text, True, self.color)
         self.image.blit(self.message, (self.rect.width/2, self.rect.height/2))
-
-    def highlight(self):
-        highlight_color = []
-        for i, c in enumerate(self.color):
-            if c+50 < 255:
-                highlight_color.append(c+50) 
-            else:
-                highlight_color.append(255)
-        self.image.fill(highlight_color)
-        self.image.blit(self.message, (20, 20))
-
-    def color_default(self):
-        self.image.fill(self.color)
-        self.image.blit(self.message, (20, 20))
         

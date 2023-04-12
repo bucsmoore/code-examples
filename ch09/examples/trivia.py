@@ -1,7 +1,9 @@
 #external library, much better than built in network library
-import requests
 #for shuffling possible answers later
-import random 
+import random
+
+import requests
+
 
 class TriviaAPI:
 

@@ -2,13 +2,11 @@
 file: main.py
 """
 import pygame
-from src.mainloop import mainloop
+from src.controller import Controller
 
 def main():
-
-    # initialize display and models
-    pygame.init()
-    mainloop()
+    controller = Controller()
+    controller.mainloop()
 
 
 main()

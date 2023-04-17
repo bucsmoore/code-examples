@@ -2,31 +2,43 @@
 file: main.py
 """
 import pygame
-from src import point
+from src import graph
 
 
-def mainloop():
-    display = pygame.display.set_mode()
-    points = []
-    # mainloop
-    while True:
-        # eventloop
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                point_deleted = False
-                for i, p in enumerate(points):
-                    if p.rect.collidepoint(event.pos):
-                        del points[i]
-                        point_deleted = True
-                if not point_deleted:
-                    p = point.Point(event.pos[0], event.pos[1])
-                    points.append(p)
+class Controller:
 
-        # draw updates
-        display.fill("white")
+    def __init__(self):
+        pygame.init()
+        self.display = pygame.display.set_mode()
+        self.graph = graph.Graph(self.display.get_width(), self.display.get_height())
+        self.drawing = False
+        
+    def mainloop(self):
+        while True:
+            # eventloop
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    exit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        self.graph.complement()
+                    elif event.key == pygame.K_c:
+                        self.graph.clear()
+                elif event.type == pygame.MOUSEBUTTONUP:
+                    self.drawing = False
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    self.drawing = True
+                elif event.type == pygame.MOUSEMOTION and self.drawing:
+                    self.graph.add_point(event.pos[0], event.pos[1])
 
-        for p in points:
-            pygame.draw.circle(display, p.color, p.rect.center, p.rect.h / 2)
+            # draw updates
+            self.display.fill("white")
+            self.display.blit(self.graph.x_axis, self.graph.x_axis_rect)
+            self.display.blit(self.graph.y_axis, self.graph.y_axis_rect)
 
-        # show display
-        pygame.display.flip()
+            for p in self.graph.points:
+                self.display.blit(p.image, p.rect)
+
+            # show display
+            pygame.display.flip()

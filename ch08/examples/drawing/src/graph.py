@@ -29,3 +29,4 @@ class Graph:
     def add_point(self, x=0, y=0, color=None):
         p = point.Point(x, y, color)
         self.points.append(p)
+        return p

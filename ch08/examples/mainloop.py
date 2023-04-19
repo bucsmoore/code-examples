@@ -4,6 +4,14 @@ file: main.py
 import pygame
 import point
 
+## Controller  - like a model, label for how a class is used
+
+# Model - data
+# View - display (pygame)
+# Controller - Logic (director)
+
+
+
 
 def mainloop():
     display = pygame.display.set_mode()

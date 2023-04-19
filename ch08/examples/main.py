@@ -21,6 +21,10 @@ class Num:
         return obj_str
         # NO PRINTING
 
+    def __add__(self, num):
+        self.data = self.data + num
+    
+
     # object functions are called methods
     # using self as the first parameter ,makes it method
     def addone(self):
@@ -93,6 +97,11 @@ def main():
     print(f"The number is: {mynewnum}")
 
     print(num) # num.__str__()
+    str(mynewnum)
+    mynewnum + 6
+
+    
+
     
 
 main()

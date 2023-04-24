@@ -1,5 +1,4 @@
 import json
-
 import pygame
 
 
@@ -16,30 +15,36 @@ class Text:
         }
 
         # store text in plain text files
-        lines = []
+        self.lines = []
         textfile = open("assets/text.txt")
         for line in textfile:
-            lines.append(line)
+            self.lines.append(line)
+        self.font = pygame.font.SysFont(None, 48)
+        self.update_display_text()
 
-        # store text in JSON files
-        self.high_score
-        lines = []
-        textfile = open("assets/text.json")  # serialization
-        text_dictionary = json.load(textfile)
-        self.title = text_dictionary["highscore"]
+    def update_score(self, new_msg=None):
+        if new_msg:
+            self.lines.append(new_msg)
 
-    def update_score(self, new_score):
-
-        self.highscore = new_score
-        textfile = open("assets/text.json", "r")
-        text_dictionary = json.load(textfile)
-        textfile.close()
-
-        text_dictionary["highscore"] = self.highscore
         textfile = open("assets/text.json", "w")
-        text_dictionary = json.dump(text_dictionary)
+        text_dictionary = json.dump(self.lines)
         textfile.write(text_dictionary)
         textfile.close()
 
-    def remove_text(self):
-        pass
+        self.msgs = []
+        #convert the strings to a font object for display
+        for m in self.lines():
+            font_object = font.render(m, True, (255, 255, 255))
+            
+
+
+
+## Using your text class in the controller
+
+...
+ msg = Text()
+    for m in msg:
+        text = 
+        screen.blit(text, (20, ypos))  # position is top left corner
+        ypos += 60
+...

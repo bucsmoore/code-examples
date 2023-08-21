@@ -64,9 +64,6 @@ class Controller:
             pygame.display.flip()
 
 
-    def start_game(self):
-        self.state = "GAME"
-
 def main():
     game = Controller()
     game.mainloop()

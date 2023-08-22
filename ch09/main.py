@@ -1,4 +1,3 @@
-
 # Network programming
 
 # Build a program that asks trivia questions
@@ -26,7 +25,7 @@
 # - status codes
 #   - 200: ok, everything went fine
 #   - 400: resource cannot be delivered
-#   - 500: bad code server  
+#   - 500: bad code server
 # - ip address
 # - system information (geolocation)
 
@@ -47,8 +46,8 @@
 import requests
 import random
 
-class TriviaProxyAPI:
 
+class TriviaProxyAPI:
     def __init__(self):
         self.url = "https://opentdb.com/api.php?"
         self.varstr = "amount=2&category=18"
@@ -57,7 +56,7 @@ class TriviaProxyAPI:
         url = self.url + self.varstr
         response = requests.get(url)
         data = response.json()
-        return data['results']
+        return data["results"]
 
     def csquestions(self):
         self.varstr = "amount=2&category=18"
@@ -67,14 +66,15 @@ class TriviaProxyAPI:
         self.varstr = "amount=2"
         return self.get()
 
+
 def main():
     tp = TriviaProxyAPI()
     results = tp.csquestions()
-    
+
     for r in results:
-        print(r['question'])
-        #possibles = [r["correct_answer"], *r["incorrect_answer"]]
-        possibles = [r["correct_answer"]]+ r["incorrect_answers"]
+        print(r["question"])
+        # possibles = [r["correct_answer"], *r["incorrect_answer"]]
+        possibles = [r["correct_answer"]] + r["incorrect_answers"]
         random.shuffle(possibles)
         print("Make your selection:")
         for i, p in enumerate(possibles):
@@ -89,9 +89,9 @@ def main():
     results = tp.general()
 
     for r in results:
-        print(r['question'])
-        #possibles = [r["correct_answer"], *r["incorrect_answer"]]
-        possibles = [r["correct_answer"]]+ r["incorrect_answers"]
+        print(r["question"])
+        # possibles = [r["correct_answer"], *r["incorrect_answer"]]
+        possibles = [r["correct_answer"]] + r["incorrect_answers"]
         random.shuffle(possibles)
         print("Make your selection:")
         for i, p in enumerate(possibles):
@@ -102,5 +102,6 @@ def main():
             print("You are correct")
         else:
             print(f'You need to study more. The correct answer is: {r["correct_answer"]}')
+
 
 main()

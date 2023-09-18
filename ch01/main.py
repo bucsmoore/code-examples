@@ -144,7 +144,34 @@ print(mylist)
 
 
 mydict = {"a": 1, "b": 2}
+# list
+num = 5
+letter = "a"
+floatingpoint_thisthing = 1.2
 
-for k, v in mydict.items():
-    print("k", k)
-    print("v", v)
+my_data = [num, letter, floatingpoint_thisthing]
+print(my_data)
+print(my_data[1])
+print(my_data[-2])
+
+my_data.append("another value")
+del my_data[2]
+
+
+# input
+
+food1 = input("WHat is one of your top 3 foods?")
+food2 = input("WHat is another one of your top 3 foods?")
+food3 = input("WHat is the last one of your top 3 foods?")
+
+# anti-pattern
+# Magic Number / Magic Value
+num = input("Enter a number to triple")
+num = float(num)
+# num = float(input("Enter a number to triple"))
+print(num * 3.147)
+
+print(num * 3)  # magic numbers
+
+factor_amt = 3
+print(num * factor_amt)

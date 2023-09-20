@@ -168,7 +168,9 @@ food3 = input("WHat is the last one of your top 3 foods?")
 # Magic Number / Magic Value
 num = input("Enter a number to triple")
 num = float(num)
+
 # num = float(input("Enter a number to triple"))
+
 print(num * 3.147)
 
 print(num * 3)  # magic numbers

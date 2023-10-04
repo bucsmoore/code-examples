@@ -6,7 +6,7 @@ pygame.init()
 screen = pygame.display.set_mode()
 colors = ["red", "purple", "green", "blue"]
 random.shuffle(colors)
-for color in colors:
+for color in colors:  # color = colors.next()
     screen.fill(color)
     pygame.display.flip()
     pygame.time.wait(500)

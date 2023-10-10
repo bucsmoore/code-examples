@@ -1,3 +1,5 @@
+## CH4: While Loops Notes
+
 ```py
 size = pygame.display.get_window_size() # [w, h]
 width = size[0]
@@ -144,4 +146,87 @@ for green, blue in enumerate(mylist):
     print(green, blue)
     mylist[green] = blue * 2
 print(mylist)
+```
+
+## Iterable Objects Review
+
+containers
+
+- lists
+- str
+
+## Mutability vs Immutability
+
+- Can it change?
+
+```py
+mystr = "Hello"
+mystr[0] = "Y" #ERROR - str are immutable
+```
+
+```py
+mystr = "Hello"
+mylist = list(mystr)
+mylist[0] = "Y" #NO ERROR - lists are mutable
+```
+
+# While
+
+for loops solve the problem of repeating an algorithms consecutively a number of times
+
+## Slicing Review
+
+iterable: list, str
+
+```py
+mylist = ['a','b','c']
+print(mylist[0])
+print(mylist[0:2]) #['a','b']
+print(mylist[:-1]) #['a','b']
+print(mylist[0:10]) #???
+
+otherlist = ['z', 'y']
+
+print(mylist[1:1]) = otherlist #['a','z', 'y', 'b','c']
+print(mylist)
+mylist[1:-1] = otherlist #['a','z', 'y','c']
+print(mylist)
+```
+
+# Tuple
+
+immutable list
+defined with `()`
+
+The location of the data has nothing to do with the value of the data
+
+The index (or key) is related to the data itself in some way
+
+# Dictionary
+
+- defined with `{}`
+- key => value
+- keys must be unique
+- keys must be immutable, usually str
+- values can be any valid python object
+
+# GUI
+
+Graphical User Interface
+
+## mainloop
+
+drives your entire GUI program
+
+```py
+
+while True:
+    # one frame i.e. one picture of your program
+    #1. event loop
+
+    #2. Update data
+
+    #3. redraw the frame
+
+    #4. flip/update
 ```

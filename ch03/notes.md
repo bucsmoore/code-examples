@@ -112,3 +112,29 @@ shapes = [3, 4, 5]
 for sh in shapes:
 for \_ in range(sh):
 ...
+
+# Review
+
+## tuple
+
+- a list that can't be change (immutable)
+- elimnates list overhead, makes more efficient
+- `()`
+  - ```py
+    mylist = (1,2,3) # immutable
+    mylist2 = [1,2,3] # mutable
+    ```
+
+## dictionary
+
+- key/value container
+- values are accessed by a unique key rather than index
+- keys must immutable, usually str
+- values can be anything
+- `{}` to define
+  - ```py
+    mydictionary = {}
+    mydictionary["unique"] = 10
+    mydictionary["unique"] = 11
+    print(mydictionary.get("not available")]
+    ```

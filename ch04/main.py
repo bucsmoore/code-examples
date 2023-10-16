@@ -73,26 +73,26 @@
 # contacts["michelangelo"] = contacts["leonardo"]
 # print(contacts)
 
-contacts = {
-    "leonardo": "123 - 3456",
-    "donatello": "987 - 6543",
-    "raphael": "867 - 5309",
-}
-for contact in contacts:
-    print(contact)
-    print(contacts[contact])
+# contacts = {
+#     "leonardo": "123 - 3456",
+#     "donatello": "987 - 6543",
+#     "raphael": "867 - 5309",
+# }
+# for contact in contacts:
+#     print(contact)
+#     print(contacts[contact])
 
-for key, value in contacts.items():
-    print(key)
-    print(contacts[key])
-    print(value)
+# for key, value in contacts.items():
+#     print(key)
+#     print(contacts[key])
+#     print(value)
 
-# print(contacts["michelangelo"]) ERROR
+# # print(contacts["michelangelo"]) ERROR
 
-name = input("enter name")
-print(contacts.get(name))  # READ ONLY
+# name = input("enter name")
+# print(contacts.get(name))  # READ ONLY
 
-contacts[name] = "some value"
-# contacts[nome] = "some value" # beware of typos
+# contacts[name] = "some value"
+# # contacts[nome] = "some value" # beware of typos
 
-print(contacts.get("sgdfhj", "return this instead"))
+# print(contacts.get("sgdfhj", "return this instead"))

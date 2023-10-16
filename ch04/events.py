@@ -7,7 +7,6 @@ pygame.init()
 screen = pygame.display.set_mode((600, 400))
 width, height = pygame.display.get_window_size()  # returns as tuple, (w, h)
 
-running = True
 
 # Setup Hitboxes
 
@@ -44,7 +43,7 @@ highlight_colors = {
 }
 
 ## Additional Data
-
+running = True
 font = pygame.font.Font(None, 24)
 result = []  # a list for the user's sequence guesses
 turns = 0  # keep track of the number of turns
@@ -83,7 +82,6 @@ while running:  # mainloop - 1 frame
                     result.append("blue")
 
     # 2. Update Data
-
     if order and len(result) == len(order):
         msg = ["You entered: " + str(result), "the correct pattern was: " + str(order)]
         if result == order:

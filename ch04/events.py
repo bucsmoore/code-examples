@@ -1,5 +1,4 @@
 import random
-
 import pygame
 
 pygame.init()
@@ -7,9 +6,7 @@ pygame.init()
 screen = pygame.display.set_mode((600, 400))
 width, height = pygame.display.get_window_size()  # returns as tuple, (w, h)
 
-
 # Setup Hitboxes
-
 hit_box_width = width / 2
 hit_box_height = height / 2
 
@@ -50,7 +47,7 @@ turns = 0  # keep track of the number of turns
 order = []  # create a shuffle-able list of colors
 msg = ["Press spacebar to play the game...(q to quit)"]
 
-while running:  # mainloop - 1 frame
+while running:  # mainloop - 1 frame, ~30 fps
     # 1. event loop
     for event in pygame.event.get():
         # print(event)

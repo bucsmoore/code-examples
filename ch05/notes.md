@@ -206,3 +206,11 @@ for i in range(len(num_list)):
 
 find_max(numbers=num_list) #find_max["numbers"] = num_list
 ```
+
+## Function Formula
+
+```
+f(x) = y
+```
+
+f(input) = output

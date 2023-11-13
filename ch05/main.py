@@ -65,21 +65,36 @@
 # print(result)
 
 
+# # f(x) = y
+# def foo(num=0):
+#     return num + num
+
+
+# # f(x) = y
+# def bar(num=0):
+#     print("inside", num + num)
+
+
+# # Print vs Return
+# # Return gives the result of an algorithm
+# # Print does nothing
+
+# result = foo()
+# print(result)
+# result = bar()
+# print(result)
+
+
 # f(x) = y
 def foo(num=0):
+    """
+    doubles a value if the addition operation is supported
+    Args:
+      num[int] default 0
+    Return:
+      [int] the doubled value
+    """
     return num + num
 
 
-# f(x) = y
-def bar(num=0):
-    print("inside", num + num)
-
-
-# Print vs Return
-# Return gives the result of an algorithm
-# Print does nothing
-
-result = foo()
-print(result)
-result = bar()
-print(result)
+print(foo.__doc__)

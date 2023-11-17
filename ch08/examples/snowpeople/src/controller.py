@@ -18,7 +18,7 @@ class Controller:
         ### initialize models and other data ###
 
         self.snowpeoples = pygame.sprite.Group()    
-        self.max_snowmen = 20
+        self.max_snowmen = 1000000
         
         number_of_starting_snowpeople = 3
         interval = self.width/(number_of_starting_snowpeople+1)

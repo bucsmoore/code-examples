@@ -1,6 +1,8 @@
-from snowman import Snowman
 import pygame
+from snowman import Snowman
 
+
+#controller class
 class SnowControl:
     
     def __init__(self):
@@ -16,7 +18,7 @@ class SnowControl:
         self.height = size_list[1]
 
         self.snowpeoples = pygame.sprite.Group()
-        self.max_snowmen = 20
+        self.max_snowmen = 10000000000000
 
         number_of_starting_snowpeople = 2
         interval = self.width/(number_of_starting_snowpeople+1)
@@ -54,7 +56,8 @@ class SnowControl:
         for s in self.snowpeoples:
             result = pygame.sprite.spritecollide(s, self.snowpeoples, False)
             if len(result) > 1 and len(self.snowpeoples) <= self.max_snowmen:
-                self.snowpeoples.add(Snowman(s.rect.x, s.rect.y))
+                sm = Snowman(s.rect.x, s.rect.y)
+                self.snowpeoples.add(sm)
 
         ### 3. REDRAW  ###
         
@@ -64,4 +67,5 @@ class SnowControl:
         self.snowpeoples.draw(self.screen)
 
         ### 4. DISPLAY  ###
+        
         pygame.display.flip()

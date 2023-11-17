@@ -6,11 +6,13 @@ class Snowman(pygame.sprite.Sprite):
     def __init__(self, x, y, img="assets/snowman.png"):
         super().__init__()
 
+        # Surface: Canvas on your object
         self.image = pygame.image.load(img)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
- 
+
+    # hook
     def update(self):
         """
         We can have an update method to call for updates that should happen every frame

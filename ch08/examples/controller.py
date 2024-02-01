@@ -1,5 +1,4 @@
 import pygame
-from src.button import Button
 
 ##
 # Pygame menu is an external module for pygame that allows you 
@@ -8,8 +7,9 @@ from src.button import Button
 # many more, with multiple options to customize.
 #
 # For more info: https://pygame-menu.readthedocs.io/
-
 import pygame_menu
+from src.button import Button
+
 
 class Controller:
     def __init__(self):

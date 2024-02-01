@@ -29,4 +29,11 @@ class Button(pygame.sprite.Sprite):
     def color_default(self):
         self.image.fill(self.color)
         self.image.blit(self.message, (20, 20))
-        
+
+
+## EXAmPLE Button Creation
+
+if __name__ == "__main__":
+
+    b1 = Button(color=(200, 200, 200), text="Press Me")
+    b2 = Button(color=(200, 0, 0), text="Don't Press Me")

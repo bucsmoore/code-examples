@@ -6,6 +6,9 @@ pygame.init()
 screen = pygame.display.set_mode()
 screen.fill("lightblue")
 #  returns as a list of 2 items (w, h)
+# dimensions = pygame.display.get_window_size()
+# width = dimensions[0]
+# height = dimensions[1]
 width, height = pygame.display.get_window_size()
 
 size = width / 4

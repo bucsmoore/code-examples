@@ -1,100 +1,144 @@
-# # import turtle
 
-# # def draw(pen, num_sides, length=50):
-# #     angle = 360 / num_sides
-# #     for _ in range(num_sides):
-# #         pen.forward(length)
-# #         pen.right(angle)
-
-
-# # sides = int(input("How many sides?"))
-# # length = int(input("What length?"))
-# # t = turtle.Turtle()
-# # s = turtle.Screen()
-
-# # t.color("green")
-# # t.shape("turtle")
-
-# # draw(t, sides, length)
-# # draw(t, sides)
-
-# # s.exitonclick()
-
-
-# def foo(x):  # standard generic functions in CS
-#     y = x
-#     return y, x
-
-
-# def bar(x):
-#     pass
-
-# a, b = foo(5)  # functin becomes it's output
-
-# print(a, b)
-
-
-# print(max(abs(-5), abs(-7)))
-
-# print(max(abs(-5), 7))
-# print(max(5, 7))
-# print(7)
-
-
-# def foo(): #defined in a function is limited to that function
-#     res = max(abs(-5), abs(-7))
-#     return res
-
-
-# output = foo()
-# print(output)
-
-# COLOR = "green"
-
-
-# def powerof(x=0, y=0):  # definition
-#     p = p + y
-#     y = x**p
-#     return y
-
-
-# p = 3
-# result = powerof(10, 2)  # execution
-# var = CONSTANT + 1
-# var = CONSTANT + 3
-# print(result)
-
-
-# # f(x) = y
-# def foo(num=0):
-#     return num + num
-
-
-# # f(x) = y
-# def bar(num=0):
-#     print("inside", num + num)
-
-
-# # Print vs Return
-# # Return gives the result of an algorithm
-# # Print does nothing
-
-# result = foo()
-# print(result)
-# result = bar()
-# print(result)
-
-
+# definition of a function
 # f(x) = y
-def foo(num=0):
-    """
-    doubles a value if the addition operation is supported
-    Args:
-      num[int] default 0
-    Return:
-      [int] the doubled value
-    """
-    return num + num
+
+# 5 + 6
+
+# Vending Machine
+
+# built-in functions
+# print("Hello")
+# result = input("Give me a numbr")
+
+# var = 0
+# def myfunc():
+#   var = int(input("input a number"))
+#   #var = int(var)
+#   var = var * var
+#   print(var)
+
+# #call
+# myfunc()
+# print("Nice job, try again")
+# myfunc()
+
+# print(var)
 
 
-print(foo.__doc__)
+# def add(x, y): #parameters num, num
+#   return x + y
+
+# def letter_grade(percentage): #92
+#   letter=""
+#   if 90 <= percentage:
+#     letter = "A"
+#   elif 80 <= percentage:
+#     letter = "B"
+#   elif 70 <= percentage:
+#     letter="C"
+#   else:
+#     letter = "F"
+   
+#   print(letter)
+
+# def hello():
+#   print("hello")
+
+# def execute(f, params=None):
+#   if params:
+#     f(*params)
+#   else:
+#     f()
+
+# execute(letter_grade, [92])
+# execute(hello)
+
+
+# def recur(num=1):
+#   """
+  
+#   """
+#   var = "some data"
+#   print(num, var)
+#   recur(num=num+1)
+
+
+# recur()
+
+# global_var = "Don't do this once you learn about main functions"
+# # f(x) = y 
+
+# def foo(num, var):
+#   var = 8
+#   y = num ** 2
+#   print(y)
+  
+# def bar(num, num2):
+#   y = num * num2
+#   print(y)
+
+# foo(5, global_var) #num= 5
+# foo(6)
+# bar(7, 9) #another_random_variable_name=7, another_another_random_variable_name = 9
+# bar()
+# foo()
+# bar()
+
+# red_sqyare = ...
+# blue_square = ...
+
+# while True:
+#   for event in pygame...events():
+#     if quit:
+#       pass
+#     elif event == pygame.MOUSEBUTTONDOWN:
+#       if red_sqyare.collidepoint(event.pos):
+#         winner = "red"
+#       else:
+#         winner = "blue" 
+
+
+#     if red_points > blue_points:
+#       print("red won")
+#       if winner == "red":
+#          print("correct")
+#       else:
+#         print("no")
+#     elif red_points < blue_points:
+#       print("blue won")
+#       if winner == "blue":
+#          print("correct")
+#       else:
+#         print("no")
+
+
+import turtle
+
+
+def draw_butterfly():
+    window = turtle.Screen()
+    window.bgcolor("white")
+
+    butterfly = turtle.Turtle()
+    butterfly.speed(1)
+
+    butterfly.fillcolor("purple")
+    butterfly.begin_fill()
+
+    for _ in range(2):
+        butterfly.circle(50, 180)
+        butterfly.right(60)
+        butterfly.circle(50, 180)
+
+    butterfly.right(120)
+
+    for _ in range(2):
+        butterfly.circle(50, 180)
+        butterfly.right(60)
+        butterfly.circle(50, 180)
+
+    butterfly.end_fill()
+
+    window.exitonclick()
+
+draw_butterfly()

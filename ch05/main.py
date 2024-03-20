@@ -1,4 +1,3 @@
-
 # definition of a function
 # f(x) = y
 
@@ -38,7 +37,7 @@
 #     letter="C"
 #   else:
 #     letter = "F"
-   
+
 #   print(letter)
 
 # def hello():
@@ -56,7 +55,7 @@
 
 # def recur(num=1):
 #   """
-  
+
 #   """
 #   var = "some data"
 #   print(num, var)
@@ -66,13 +65,13 @@
 # recur()
 
 # global_var = "Don't do this once you learn about main functions"
-# # f(x) = y 
+# # f(x) = y
 
 # def foo(num, var):
 #   var = 8
 #   y = num ** 2
 #   print(y)
-  
+
 # def bar(num, num2):
 #   y = num * num2
 #   print(y)
@@ -95,7 +94,7 @@
 #       if red_sqyare.collidepoint(event.pos):
 #         winner = "red"
 #       else:
-#         winner = "blue" 
+#         winner = "blue"
 
 
 #     if red_points > blue_points:
@@ -112,33 +111,49 @@
 #         print("no")
 
 
-import turtle
+# import turtle
 
 
-def draw_butterfly():
-    window = turtle.Screen()
-    window.bgcolor("white")
+# def draw_butterfly():
+#     window = turtle.Screen()
+#     window.bgcolor("white")
 
-    butterfly = turtle.Turtle()
-    butterfly.speed(1)
+#     butterfly = turtle.Turtle()
+#     butterfly.speed(1)
 
-    butterfly.fillcolor("purple")
-    butterfly.begin_fill()
+#     butterfly.fillcolor("purple")
+#     butterfly.begin_fill()
 
-    for _ in range(2):
-        butterfly.circle(50, 180)
-        butterfly.right(60)
-        butterfly.circle(50, 180)
+#     for _ in range(2):
+#         butterfly.circle(50, 180)
+#         butterfly.right(60)
+#         butterfly.circle(50, 180)
 
-    butterfly.right(120)
+#     butterfly.right(120)
 
-    for _ in range(2):
-        butterfly.circle(50, 180)
-        butterfly.right(60)
-        butterfly.circle(50, 180)
+#     for _ in range(2):
+#         butterfly.circle(50, 180)
+#         butterfly.right(60)
+#         butterfly.circle(50, 180)
 
-    butterfly.end_fill()
+#     butterfly.end_fill()
 
-    window.exitonclick()
+#     window.exitonclick()
 
-draw_butterfly()
+# draw_butterfly()
+
+
+# f(x) == y
+
+
+def foo(num):
+    """
+    foo is a function
+    param:
+      - num: (int, float, str, list)
+    """
+    return num * 2
+
+
+foo(1)
+foo(0.5)

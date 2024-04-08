@@ -77,8 +77,3 @@ for _ in <list>:
     - HTML/CSS/JS
 - Controller
   - Ties events to algorithms, updates data, and displays the screen
-
-
-
-## Model
-

@@ -1,45 +1,93 @@
-import json
-import random
+# x = 1
+# y = 10
 
-import requests
+# while x < 100:
+#     # event loop
+#     x += 1
+
+#     # updates
+#     if x % y == 0:
+#         print("clicked")
+#         x = 1
 
 
-# Proxy class
-class TriviaAPI:
+import pygame
 
-    def __init__(self, category=18, amount=1):
-        self.url = f'https://opentdb.com/api.php'
-        self.params = f'amount={amount}&category={category}'
+# class vs model
 
-    def get(self):
-        r = requests.get(f'{self.url}?{self.params}')
-        response = r.json()
-        if response.get('results'):
-            return response['results']
-        else:
-            return None
 
-    def change_category(self, category):
-        pass
-        #self.url = #...
+class Background(pygame.sprite.Sprite):
+    def __init__(self, width, height):
+        self.color = (50, 50, 50)
+        self.image = pygame.surface.Surface((width, height))
+        self.rect = self.image.get_rect()
 
-def main():
-    # trivia = TriviaAPI()
-    # result = trivia.get()
-    # print(result)
-    var = 5
-    res = input("Please enter a json formatted string:")
+    def update(self):
+        for idx, c in enumerate(self.color):
+            self.colors[idx] = (c + 1) % 256
+        self.image.fill(self.colors)
 
-    result = json.loads(res) #dumps
-    print(result['KEY'])
-    del result['KEY']
-    print(result)
 
-    data_obj = {
-        "key1": 9, 
-        "key2":"hi"
-    }
-    
-    
+LIMIT = 10
 
-main()
+
+class Controller:
+    def __init__(self):
+        # setup pygame data
+        pygame.init()
+        self.screen = pygame.display.set_mode()
+        self.background = Background(self.screen.get_size())
+        self.mygroup = pygame.Group()
+        self.mygroup.add(self.background)
+        self.state = "menu"
+        self.click = 1
+
+    def mainloop(self):
+        while True:
+            if self.state == "menu":
+                self.menuloop()
+                # print(self.state)
+            elif self.state == "game":
+                self.gameloop()
+
+    def menuloop(self):
+        while self.state == "menu":
+            pygame.display.update()
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        self.state = "game"
+
+    def gameloop(self):
+        """
+        menu elements must be defined before the mainloop
+        """
+        while self.state == "game":  # one time through the loop is one frame (picture)
+            # check for events
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.state = "menu"
+                elif event.type == pygame.MOUSEMOTION:
+                    if self.button.rect.collidepoint(event.pos):
+                        self.button.highlight()
+                    else:
+                        self.button.color_default()
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if self.button.rect.collidepoint(event.pos):
+                        click += 1
+
+            # update
+            if click % LIMIT == 0:
+                # dosomething()
+                click = 1
+            self.mygroup.update()
+
+            # redraw
+            self.mygroup.draw()
+
+            self.screen.blit(self.background, (0, 0))
+
+            # display
+            pygame.display.flip()

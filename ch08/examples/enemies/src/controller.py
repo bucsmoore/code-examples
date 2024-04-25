@@ -1,9 +1,8 @@
-from src import player
-from src import enemy
-from src import projectile
+import random
 
 import pygame
-import random
+from src import enemy, player, projectile
+
 
 class Controller:
     def __init__(self):
@@ -15,7 +14,7 @@ class Controller:
         self.background.fill(self.background_color)
         # held keys act like repeated strike
 
-        #create modle objects
+        # create modle objects
         self.player = player.Player()
 
         self.enemies = pygame.sprite.Group()
@@ -26,11 +25,11 @@ class Controller:
         self.projectiles = pygame.sprite.Group()
 
         # cast existing groups to a tuple to add them together with other sprites and make a new group
-        self.all_sprites = pygame.sprite.Group(tuple(self.enemies) + (self.player, ))
+        self.all_sprites = pygame.sprite.Group(tuple(self.enemies) + (self.player,))
 
     def mainloop(self):
         while True:  # one time through the loop is one frame (picture)
-            #reset the background to the default color
+            # reset the background to the default color
             background_color = (200, 200, 250)
 
             # check for events since the last time through the loop
@@ -48,7 +47,9 @@ class Controller:
                         self.player.move("R")
                     if event.key == pygame.K_SPACE:
                         if len(self.projectiles.sprites()) <= 5:
-                            p = Projectile.Projectile(pygame.display.get_window_size()[0])
+                            p = projectile.Projectile.Projectile(
+                                pygame.display.get_window_size()[0]
+                            )
                             pos = player.rect.midright
                             p.rect.x = pos[0]
                             p.rect.y = pos[1]
@@ -71,12 +72,13 @@ class Controller:
                         enemy.kill()
                     else:
                         self.player.health -= 1
-                        #add a bounce effect and visual cue
+                        # add a bounce effect and visual cue
                         self.player.rect.x -= enemy.rect.w
                         self.background_color = (255, 0, 0)
 
-
-            bullets = pygame.sprite.groupcollide(self.enemies, self.projectiles, False, True)
+            bullets = pygame.sprite.groupcollide(
+                self.enemies, self.projectiles, False, True
+            )
             if bullets:
                 for enemy in bullets:
                     enemy.pause()
@@ -89,10 +91,9 @@ class Controller:
             self.background.fill(self.background_color)
             self.screen.blit(self.background, (0, 0))
 
-
-            #redraw all models
+            # redraw all models
             self.all_sprites.draw(self.screen)
-            #projectiles.draw(screen)
+            # projectiles.draw(screen)
 
             # update the screen
             pygame.display.flip()

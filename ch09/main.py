@@ -91,3 +91,12 @@ class Controller:
 
             # display
             pygame.display.flip()
+
+
+mynums = [6, 9, 5, 8]
+counter = 0
+while mynums:
+    if counter == mynums[0]:
+        mynums.pop(0)
+    counter += 1
+    print(mynums)

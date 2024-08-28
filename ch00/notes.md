@@ -40,3 +40,30 @@ programmable machines
 ```py
 def main() #not in your code, writing a script
 ```
+
+
+# Repository
+
+Folder - contains a project or set related files
+
+- Backups
+- Share the folder
+
+- Versioning
+- Branching
+
+# Local Repository
+
+- Folder with backups on your local computer
+
+# Git
+
+- Like a local repo, it manages backups and allows you share the folder
+
+- commit: takes a snapshot of the current state
+  - message: required
+
+# Github
+
+- Storage bucket for repositories
+- IT IS NOT GOOGLE DOCS FOR CODE

@@ -2,7 +2,6 @@ import turtle
 
 # Set up the turtle screen
 screen = turtle.Screen()
-
 # Create a turtle instance
 pen = turtle.Turtle()
 

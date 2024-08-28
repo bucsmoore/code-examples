@@ -17,4 +17,3 @@ pen.write("Hello, World!")
 
 # Keep the window open until clicked
 screen.exitonclick()
-

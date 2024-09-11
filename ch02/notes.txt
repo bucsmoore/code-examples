@@ -1,0 +1,7 @@
+# What is a library?
+
+- prewritten algorithms, i.e. functions, you use without having to copy and paste from stack overflow
+
+## Module
+
+import math

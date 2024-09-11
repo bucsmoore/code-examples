@@ -1,9 +1,36 @@
-import pygame
+import math
+import random
+import turtle
 
-pygame.init()
-screen = pygame.display.set_mode()
-pygame.draw.circle(screen, "red", [200, 150], 10)
-pygame.draw.circle(screen, "red", [200, 200], 30)
-pygame.draw.circle(screen, "red", [200, 250], 50)
-pygame.display.flip()
-pygame.time.wait(1500)
+pi = "raspberry"
+# modulename.attribute
+print(math.pi)
+# input("This will not save anywhere")
+# abs(-5)
+print(random.randint(1, 1000000))
+
+pen = turtle.Turtle()  # complex type
+
+window = turtle.Screen()
+num = 1  # primitive type
+
+pen.shape("turtle")
+pen.color("purple")
+pen.forward(50)
+pen.right(90)
+pen.forward(50)
+pen.right(90)
+pen.forward(50)
+pen.right(90)
+pen.forward(50)
+pen.right(90)
+
+pen.up()
+
+pen.forward(100)
+
+pen.down()
+pen.forward(100)
+
+# this always has to be the last line executed
+window.exitonclick()

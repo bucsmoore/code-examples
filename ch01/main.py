@@ -109,9 +109,18 @@ goodbye
 # print(my_desserts[1][4])
 
 
-result = input("Please enter something: ")
-print(result, type(result))
+# result = input("Please enter something: ")
+# print(result, type(result))
 
-# result = int(result)
-
+# result = float(result)
+# result = result + result
 # print(result * 2)
+
+# result = float(input("Please enter something: "))
+# print(result, type(result))
+
+names = []
+# input("What is your character's name: ")
+name = input("What is your character's name: ")
+names.append(name)
+print(names)

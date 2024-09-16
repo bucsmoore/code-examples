@@ -56,10 +56,10 @@
 # print("done")
 
 # looping is also called iteration
-for i in [1, 2, 3, 4]:
-    print(i)
-    i = i * 10
-    print(i)
+# for i in [1, 2, 3, 4]:
+#     print(i)
+#     i = i * 10
+#     print(i)
 
 # 2 uses for `for`
 
@@ -111,21 +111,32 @@ for i in [1, 2, 3, 4]:
 #     print("sunday")
 
 
-import turtle  # 1.  import the modules
+# import turtle  # 1.  import the modules
 
-wn = turtle.Screen()  # 2.  Create a screen
-wn.bgcolor("green")
-donatello = turtle.Turtle()  # 3.  Create two turtles
+# wn = turtle.Screen()  # 2.  Create a screen
+# wn.bgcolor("green")
+# donatello = turtle.Turtle()  # 3.  Create two turtles
 
-donatello.shape("turtle")
-colors = ["red", "purple", "yellow", "blue"]
+# donatello.shape("turtle")
+# colors = ["red", "purple", "yellow", "blue"]
 
-for color in colors:
-    donatello.color(color)
-    for i in range(4):
-        donatello.left(90)
-        donatello.forward(50)
-    donatello.up()
-    donatello.forward(100)
-    donatello.down()
-wn.exitonclick()
+# for color in colors:
+#     donatello.color(color)
+#     for i in range(4):
+#         donatello.left(90)
+#         donatello.forward(50)
+#     donatello.up()
+#     donatello.forward(100)
+#     donatello.down()
+# wn.exitonclick()
+
+import random
+
+high = int(input("Please enter an upper limit (inc): "))
+low = int(input("Please enter an lower limit (inc): "))
+num_numbers = int(input("Please enter how many random numbers you would like: "))
+
+for _ in range(num_numbers):
+    rand_num = random.randrange(low, high + 1)
+    # rand_num = random.randint(low, high)
+    print(rand_num)

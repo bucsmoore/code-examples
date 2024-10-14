@@ -134,27 +134,92 @@
 # t.down()
 # t.goto(0, 1)
 
-import random
+# import random
 
-num = random.randint(1, 1000)
-high = 1000
-guess = 0
-num_guesses = 0
-while guess != num:
-    guess = int(input("Guess a number between 1 and 1000: "))
-    if guess < num:
-        print("Your guess is too low")
-    if guess > num:
-        print("Your guess is too high")
-    num_guesses += 1
+# num = random.randint(1, 1000)
+# guess = 0
+# num_guesses = 0
+# while guess != num:
+#     guess = int(input("Guess a number between 1 and 1000: "))
+#     if guess < num:
+#         print("Your guess is too low")
+#     elif guess > num:
+#         print("Your guess is too high")
+#     num_guesses += 1
 
-print(num, "is correct! It only took you", num_guesses, "guesses to get it.")
+# print(num, "is correct! It only took you", num_guesses, "guesses to get it.")
 
 
 #################################################################################
 
-# contacts = [["Aang", "657-6789"], ["Sokka", "568-9970"], ["Katara", "645-7897"]]
+# contacts = [
+#     ["Aang", "657-6789"],
+#     ["Sokka", "568-9970"],
+#     ["Katara", "645-7897"]
+# ]
 # name = input("Who's number do you want? ")
 # for contact in contacts:
 #     if contact[0] == name:
 #         print(contact[1])
+
+# contacts = [ #not valid code
+#     0:["Aang", "657-6789"],
+#     1:["Sokka", "568-9970"],
+#     2:["Katara", "645-7897"]
+# ]
+
+# contacts = [ #not valid code
+#    "Aang": "657-6789",
+#     "Sokka":"568-9970",
+#     "Katara":"645-7897"
+# ]
+
+# name = input("Who's number do you want? ")
+
+# dictionary
+# key : value
+# - keys must be immutable
+# - value is any valid python data
+
+contacts = {  # not valid code
+    "Aang": "657-6789",
+    "Sokka": "568-9970",
+    "Katara": "645-7897",
+}
+
+# print(contacts[name])  # key, instead of an index
+
+# print(contacts.get(name))
+# contacts.get(name) = 7
+
+contacts["Toph"] = "867-5309"  # add new key/value to the list
+contacts["Aang"] = "567-9876"  # updates existing key/value in the list
+contacts["toph"] = "867-5309"  # add new key/value to the list
+
+# Keys must be unique in the dictionary
+# print(contacts)
+
+# loops use keys
+# for c in contacts:
+#     print(c, contacts[c])
+
+# items
+# print(contacts.items())
+for key, value in contacts.items():
+    print(key, value)
+
+for key in contacts.keys():  # list of the dictionary keys
+    print(key)
+
+for value in contacts.values():  # list of the dictionary values
+    print(value)
+
+# Iterable Objects
+
+# - str: list of characters, immutable
+# - list: list of objects, mutable
+# - tuples: list of objects, immutable
+# - dictionary: set of objects organized with key/value pairs
+
+mylist = [1, 1, 2, 3]
+mylist = list(set(mylist))

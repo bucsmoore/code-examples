@@ -1,34 +1,97 @@
+# import json
+
+# # JSON is a string format that is easily parsed by machines
+# # store simple objects and lists
+
+# person = {"name": "", "age": 0}
+
+# persons = []
+# for i in range(3):
+#     person = {"name": "name" + str(i), "age": str(i)}
+#     persons.append(person)
+
+# print(type(persons), persons)
+
+# # dumps takes python object (dictionary or list) and converts it to a json string
+# persons_json_str = json.dumps(persons)
+# print(type(persons_json_str), persons_json_str)
+
 import random
 
-import requests
+import pygame
 
-# https://opentdb.com/api.php?amount=10&category=1
-# https://[host]/[resource]?[param=val]&[param2=val]
+# Events
+# GUI - anytime user interacts with the system, it creates an event
+# - Events are handled by the OS
+#   - mouse click, move
+#   - keyboard event
 
-amount = 1
-category = 18
+pygame.init()
+pygame.event.pump()
 
-url = f"https://opentdb.com/api.php?amount={amount}&category={category}"
+screen = pygame.display.set_mode((300, 400))
 
-response = requests.get(url)
-print(response.status_code)
-data = response.json()
-print(data)
-for trivia in data["results"]:
-    answers = trivia["incorrect_answers"] + [trivia["correct_answer"]]
-    # shuffle the array for random order
-    random.shuffle(answers)
+colors = ["purple", "blue", "green", "gold"]
+random.shuffle(colors)
 
-    print(f"{trivia['question']} \n-- Please select the correct answer:\n===")
+width, height = pygame.display.window_size()
 
-    # enumerate(): returns a tuple of the index and the value for each list item
-    # display all possible answers
-    for i, a in enumerate(answers):
-        print(f"{i}){a}")
+hit_box_width = width / 2
+hit_box_height = height / 2
 
-    # ask the user for their choice
-    choice = int(input(":"))
-    if answers[choice] == trivia["correct_answer"]:
-        print("correct, I guess.")
-    else:
-        print(f"Actually, {trivia['correct_answer']}")
+hitboxes = {
+    "red": pygame.Rect(0, 0, hit_box_width, hit_box_height),
+    "green": pygame.Rect(0, 0, hit_box_width, hit_box_height),
+    "blue": pygame.Rect(0, 0, hit_box_width, hit_box_height),
+    "purple": pygame.Rect(0, 0, hit_box_width, hit_box_height),
+}
+
+for color in colors:
+    screen.fill(color)
+    pygame.display.flip()
+    pygame.time.wait(500)
+    screen.fill("black")
+    pygame.display.flip()
+    pygame.time.wait(250)
+
+msg = """
+Your arrow keys correspond to the following colors:
+  UP: gold
+  DOWN: purple
+  LEFT: green
+  RIGHT: blue
+
+  Click on the window, enter the sequence, then press <enter> in the console
+"""
+
+input(msg)  # use input to pause the program for the user
+answer = []
+# mainloop
+
+while True:  # mainloop
+    for event in pygame.event.get():
+        if pygame.KEYDOWN == event.type:
+            if event.key == pygame.K_UP:
+                screen.fill("gold")
+                answer.append("gold")
+            elif event.key == pygame.K_RIGHT:
+                screen.fill("blue")
+                answer.append("blue")
+            elif event.key == pygame.K_LEFT:
+                screen.fill("green")
+                answer.append("green")
+            elif event.key == pygame.K_DOWN:
+                screen.fill("purple")
+                answer.append("purple")
+            pygame.display.flip()
+            pygame.time.wait(1000)
+
+print("You Entered:", answer)
+print("The correct pattern was", colors)
+
+if answer == colors:
+    print("Correct! You win.")
+else:
+    print("Were you even paying attention?")
+
+pygame.quit()

@@ -1,79 +1,70 @@
+
+## SLOC - source lines of code
+
+Unix - 10000 lines
+Pacemaker - 40000 lines
+Webbrowser - 10 million
+OS - >100 million
+
+# Problem to be solved
+
+Complexity
+
+
+# Objects
+
+Data that has behavior
+
+1: int object that can do arithmetic
+"Hello": list of characters that can do lots of stuff
+
+## Types of Programming
+
+- Procedural Programming
+  - sequential instructions
+- Object Orient Programming
+
 # OOP
 
-Complexity == SLOC
-
-- Source Lines of Code
-
-- Web Browser: >100 Million
-- ATM: 10000
-- Mobile App: 60,000
-
-## Complex Object
-
-- made up of primitive and other complex objects
-- Contains data and algorithms to work with the data
-- Record: compiled data treated as a single object
+- Complex Objects
+  - Example: Turtle
+  - made up of other objects
 
 - State
+  - The values of your data
 - Behavior
+  - What can your data do?
 
-## Graph
+Objects manage their own data, and hide complexity in functions (methods)
 
-State:
 
-- range of x and y
-- points
 
-Behavior:
-
-- make a line between coordinates
-- add/remove points
-- change points color
-
-Type == Class
-
-## Point
-
-state: x, y
+# Model: Graph
 
 ```py
+class Graph:
+  points = []
+  boundaries = []
+
+  def add_point(p):
+    points.append(p)
 
 class Point:
-
-
+    x = 0
+    y = 0
+    color = []
 ```
 
-- Use classes to define an object
-- Create objects, instantiate, from classes
-- Each object from a class has its own state
 
-## Python built-in classes
+# Classes
 
-- int, Turtle, range
+all objects are created from classes
 
-# Style rule for Python
+Classes are data blueprints
+like functions are algorithm blueprints
 
-- Enforced by many other language
+Class == Type
 
-One class per file
-
-
-```py
-accumulator=<starting value>
-for _ in <list>:
-    accumulator += _
-```
-
-## Design Patterns
-
-### Model View Controller (MVC)
-
-- Model
-  - Data and state
-  - contain data specific algorithms
-- View
-  - translates data to pixels
-  - pygame does this for us
-    - HTML/CSS/JS
-- Controller
-  - Ties events to algorithms, updates data, and displays the screen
+- instance: an object created from a class
+- instance variable: an object inside of a class, attribute
+- interface: the methods (functions) of a class

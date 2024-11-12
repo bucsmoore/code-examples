@@ -134,50 +134,137 @@
 # s.exitonclick()
 
 
-def vend(currency, button):
-    """
-    This function does stuff
-    return - str
-    args - current [int], button [str]
-    """
-    items = {
-        "A1": {"cost": 1, "item": "Hot Coffee"},
-        "A2": {"cost": 2, "item": "Hot Tea"},
-        "B1": {"cost": 5, "item": "Hot Chocolate"},
-    }
+# def vend(currency, button):
+#     """
+#     This function does stuff
+#     return - str
+#     args - current [int], button [str]
+#     """
+#     items = {
+#         "A1": {"cost": 1, "item": "Hot Coffee"},
+#         "A2": {"cost": 2, "item": "Hot Tea"},
+#         "B1": {"cost": 5, "item": "Hot Chocolate"},
+#     }
 
-    item_data = items[button]
-    if currency >= item_data["cost"]:
-        change = currency - item_data["cost"]
-        print("Your change is: ", change)
-        return item_data["item"]
-    else:
-        # print is not return
-        # print is a NOOP (No Operation)
-        print("Not enough money. Try again.")
+#     item_data = items[button]
+#     if currency >= item_data["cost"]:
+#         change = currency - item_data["cost"]
+#         print("Your change is: ", change)
+#         return item_data["item"]
+#     else:
+#         # print is not return
+#         # print is a NOOP (No Operation)
+#         print("Not enough money. Try again.")
 
 
 # shows where your program starts
 
 
-def main():
-    """
-    main does not have a docstring
-    """
-    print(vend.__doc__)
-    # money = 5
+# def main():
+#     """
+#     main does not have a docstring
+#     """
+#     print(vend.__doc__)
+# money = 5
 
-    # button = "A2"
+# button = "A2"
 
-    # me = vend(money, button)
-    # print("I have a", me)
+# me = vend(money, button)
+# print("I have a", me)
 
-    # money = 5
-    # button = "A2"
+# money = 5
+# button = "A2"
 
-    # me = vend(1, "B1")
-    # print("I have a", me)
+# me = vend(1, "B1")
+# print("I have a", me)
 
 
 # always at the end
+# main()
+
+
+# Managing Complexity
+
+# 1000 lines code
+
+# global Scope
+x = 1
+y = 1
+
+
+# .. 500 lines later
+
+x = "Hi"
+
+
+# Variables should always be scoped (i.e. inside a function)
+# - Constants: ALL CAPS (convention)
+# Convention : where to start tracing
+# def main():  # driver
+#     x = 5
+#     myfunction(x)
+#     x = "hi"
+
+
+# PI = 3.1475926
+# RED = [255, 0, 0]
+
+
+# def myfunction():
+#     """
+#     description
+#     args
+#     return
+#     """
+#     pass
+
+# main()
+
+# Programming Patterns
+# - MVC
+# - for loop
+# - accumulator
+
+# num = 0
+# for i in range(10):
+#     num = num + i
+#     # num += i
+# print(num)
+
+# num = []
+# for i in range(10):
+#     num.append(num)
+#     # num += i
+# print(num)
+
+
+# imports
+
+# constants
+
+# functions
+# main should be in here somewhere
+
+# call to main()
+
+
+def removeVowels(somestr):
+    vowels = "aeiou"
+    vowels += vowels.upper()
+    newstr = ""
+    for ch in somestr:
+        if ch not in vowels:
+            newstr += ch
+    return newstr
+
+
+def main():
+    mystr = "BInghamton"
+    result = removeVowels(mystr)
+    print(result)
+    mystr = "Hoooooowdy!"
+    result = removeVowels(mystr)
+    print(result)
+
+
 main()

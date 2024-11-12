@@ -1,0 +1,9 @@
+{
+  "name": "Jill",
+  "age": "5",
+  "pets": [
+    "Dog",
+    "Cat",
+    "Elephant"
+  ]
+}

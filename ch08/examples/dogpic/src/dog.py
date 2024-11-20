@@ -55,5 +55,5 @@ class Dog(pygame.sprite.Sprite):
         None
         """
 
-        if pygame.time.get_ticks() % 100 == 0:
+        if pygame.time.get_ticks() % 10000 == 0:
             self.change_image()

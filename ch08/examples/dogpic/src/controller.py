@@ -10,7 +10,7 @@ class Controller:
         self.screen = pygame.display.set_mode()
         self.width, self.height = pygame.display.get_window_size()
 
-        ## Bouncing Ball Model
+        ## Dog Model
         self.dog = Dog()
         self.sprites = pygame.sprite.Group((self.dog,))
 

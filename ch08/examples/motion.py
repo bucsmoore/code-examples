@@ -30,6 +30,17 @@ class Ball:
         else:
             self.y += 1
 
+    def save_state(self):
+        # write out state
+        ball_state = self.ball.__dict__
+        fptr = open("assets/last_state.json", "w")
+        json.dump(fptr, ball_state)
+
+    def load_state(self):
+        # read in state
+        fptr = open("assets/last_state.json")
+        self.ball.__dict__ = json.loads(fptr)
+
 
 class Controller:
     def __init__(self):
@@ -45,14 +56,6 @@ class Controller:
 
         ## Bouncing Ball Model
         self.ball = Ball(self.width / 2, self.height / 2, 50)
-
-        # write out state
-        ball_state = self.ball.__dict__
-        fptr = open("assets/last_state.json", "w")
-        json.dump(fptr, ball_state)
-
-        fptr = open("assets/last_state.json")
-        self.ball.__dict__ = json.loads(fptr, ball_state)
 
     def mainloop(self):
         while True:

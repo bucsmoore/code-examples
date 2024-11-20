@@ -32,14 +32,14 @@ class Ball:
 
     def save_state(self):
         # write out state
-        ball_state = self.ball.__dict__
+        ball_state = self.__dict__
         fptr = open("assets/last_state.json", "w")
         json.dump(fptr, ball_state)
 
     def load_state(self):
         # read in state
         fptr = open("assets/last_state.json")
-        self.ball.__dict__ = json.loads(fptr)
+        self.__dict__ = json.loads(fptr)
 
 
 class Controller:

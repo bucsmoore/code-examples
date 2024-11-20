@@ -1,5 +1,7 @@
-import pygame
+import json
 import random
+
+import pygame
 
 ## This intentionally does not directly use any of the
 ## additional helper classes from Pygame such as Sprites
@@ -44,10 +46,16 @@ class Controller:
         ## Bouncing Ball Model
         self.ball = Ball(self.width / 2, self.height / 2, 50)
 
+        # write out state
+        ball_state = self.ball.__dict__
+        fptr = open("assets/last_state.json", "w")
+        json.dump(fptr, ball_state)
+
+        fptr = open("assets/last_state.json")
+        self.ball.__dict__ = json.loads(fptr, ball_state)
+
     def mainloop(self):
-
         while True:
-
             # update the ball's position
             self.ball.move()
 

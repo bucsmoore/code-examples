@@ -4,7 +4,8 @@ import pygame
 from src.snowman import Snowman
 
 LIGHT_BG = (200, 200, 250)
-MAX_SNOWMEN = 20
+MAX_SNOWMEN = 5
+
 
 class Controller:
     def __init__(self):
@@ -14,25 +15,23 @@ class Controller:
         self.background = pygame.Surface((self.width, self.height))
         self.background_color = LIGHT_BG
         self.background.fill(self.background_color)
-        
+
         ### initialize models and other data ###
 
-        self.snowpeoples = pygame.sprite.Group()    
-        self.max_snowmen = 1000000
-        
+        self.snowpeoples = pygame.sprite.Group()
+        self.max_snowmen = MAX_SNOWMEN
+
         number_of_starting_snowpeople = 3
-        interval = self.width/(number_of_starting_snowpeople+1)
+        interval = self.width / (number_of_starting_snowpeople + 1)
         xpos = interval
         for _ in range(number_of_starting_snowpeople):
-            new_sm = Snowman(xpos, self.height/2)
+            new_sm = Snowman(xpos, self.height / 2)
             self.snowpeoples.add(new_sm)
             xpos += interval
 
-
     def mainloop(self):
         # one time through the loop is one frame (picture)
-        while True:  
-            
+        while True:
             # check for events since the last time through the loop
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -42,23 +41,23 @@ class Controller:
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     for s in self.snowpeoples:
                         if s.rect.collidepoint(event.pos):
-                            s.kill() #remove from all Groups and delete
+                            s.kill()  # remove from all Groups and delete
 
             ## update models ##
 
             self.snowpeoples.update()
-            
-            #remove offscreen sprites
+
+            # remove offscreen sprites
             for s in self.snowpeoples:
                 if not s.rect.colliderect(self.background.get_rect()):
                     s.kill()
 
-            #quit if no snowpeople left
+            # quit if no snowpeople left
             if len(self.snowpeoples) == 0:
                 pygame.quit()
                 exit()
 
-            #multiply colliding sprites
+            # multiply colliding sprites
             for s in self.snowpeoples:
                 result = pygame.sprite.spritecollide(s, self.snowpeoples, False)
                 if len(result) > 1 and len(self.snowpeoples) < self.max_snowmen:
@@ -67,7 +66,7 @@ class Controller:
             ## redraw ##
             self.background.fill(self.background_color)
             self.screen.blit(self.background, (0, 0))
-            
+
             self.snowpeoples.draw(self.screen)
 
             # update the screen
